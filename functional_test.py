@@ -8,7 +8,7 @@ class NewVisitorTest(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(self, 3)
-        
+
     def tearDown(self):
         self.browser.quit()
 
