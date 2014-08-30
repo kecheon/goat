@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from lists.views import home_page
+from django.template.loader import render_to_string
 
 # Create your tests here.
 
@@ -21,6 +22,5 @@ class HomePageTest(TestCase):
     def test_real_response(self):
         request = HttpRequest()
         response = home_page(request)
-        self.assertTrue(response.content.startswith(b'<html>'))
-        self.assertIn(b'TODO', response.content)
-        self.assertTrue(response.content.endswith(b'</html>'))
+        expected_html = render_to_string("home.html")
+        self.assertTrue(response.content.decode(), expected_html)
