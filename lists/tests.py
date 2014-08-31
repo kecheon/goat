@@ -24,3 +24,12 @@ class HomePageTest(TestCase):
         response = home_page(request)
         expected_html = render_to_string("home.html")
         self.assertTrue(response.content.decode(), expected_html)
+
+    def test_post_request(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST['item_text'] = u'족발과 새우젓'
+        response = home_page(request)
+
+        self.assertIn(u'족발과 새우젓', response.content.decode())
+

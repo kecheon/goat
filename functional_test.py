@@ -26,15 +26,25 @@ class NewVisitorTest(unittest.TestCase):
                           u'TODO 항목 입력')
         inputbox.send_keys('족발과 새우젓')
         inputbox.send_keys(Keys.ENTER)
-
+        # import time
+        # time.sleep(10)
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
             any(row.text == u'1: 족발과 새우젓' for row in rows),
-            "입력한 내용이 테이블에 없습니다."
+            "입력한 내용이 테이블에 없습니다. %s" % table.text
         )
 
-        self.assertEquals()
+        # 다른 TODO 입력을 할 수 있는 입력창이 열려있다.
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('쌈도 샀니?')
+        inputbox.send_keys(Keys.ENTER)
+
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(u'1: 족발과 새우젓', [row.text for row in rows])
+        self.assertIn(u'2: 쌈도 샀니?', [row.text for row in rows])
+
         self.fail("End of tests!")
 
 if __name__ == "__main__":
