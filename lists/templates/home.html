@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TODO</title>
+</head>
+<body>
+    <h1>TODO</h1>
+    <form method="POST">
+        <input type="text" name="item_text" id="id_new_item"
+               placeholder="TODO 항목 입력">
+        {% csrf_token %}
+    </form>
+    <table id="id_list_table">
+        {% for item in items %}
+        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
