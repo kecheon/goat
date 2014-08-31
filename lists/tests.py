@@ -27,36 +27,19 @@ class ItemTest(TestCase):
         self.assertEqual(u'쌈도 샀니?', second_saved_item.text)
 
 
-
-
-class HomePageTest(TestCase):
-    def test_save_POST_request(self):
-        request = HttpRequest()
-        request.method = 'POST'
-        request.POST['item_text'] = u'족발과 새우젓'
-        response = home_page(request)
-
+class NewListTest(TestCase):
+    def test_save_post_request(self):
+        self.client.post('/lists/new', data={'item_text':u'족발과 새우젓'})
         self.assertEqual(Item.objects.count(), 1)
         new_item = Item.objects.first()
         self.assertEqual(new_item.text, u'족발과 새우젓')
-        # self.assertIn(u'족발과 새우젓', response.content.decode())
-        # expected_html = render_to_string('home.html',
-        #                                  {'new_item_text':u'족발과 새우젓'})
-        # self.assertEqual(response.content.decode(), expected_html)
 
-    def test_post_redirect(self):
-        request = HttpRequest()
-        request.method = 'POST'
-        request.POST['item_text'] = u'족발과 새우젓'
-        response = home_page(request)
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'], '/lists/the-unique-url/')
+    def test_redirect_after_post(self):
+        response = self.client.post('/lists/new', data={'item_text':u'족발과 새우젓'})
+        self.assertRedirects(response, '/lists/the-unique-url/')
 
 
-    def test_save_only_not_none(self):
-        request = HttpRequest()
-        home_page(request)
-        self.assertEqual(Item.objects.count(), 0)
+class HomePageTest(TestCase):
 
     def test_root_url_resolves_to_homepage_view(self):
         found = resolve('/')
