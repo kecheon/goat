@@ -60,7 +60,7 @@ class NewVisitorTest(LiveServerTestCase):
         # TODO 입력
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys(u'막걸리 추가')
-        inpuubox.send_keys(Keys.ENTER)
+        inputbox.send_keys(Keys.ENTER)
         francis_list_url = self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(edith_list_url, francis_list_url)

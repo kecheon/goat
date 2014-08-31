@@ -26,6 +26,10 @@ class ItemTest(TestCase):
         second_saved_item = saved_items[1]
         self.assertEqual(u'쌈도 샀니?', second_saved_item.text)
 
+
+
+
+class HomePageTest(TestCase):
     def test_save_POST_request(self):
         request = HttpRequest()
         request.method = 'POST'
@@ -46,17 +50,13 @@ class ItemTest(TestCase):
         request.POST['item_text'] = u'족발과 새우젓'
         response = home_page(request)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'], '/')
+        self.assertEqual(response['location'], '/lists/the-unique-url/')
 
 
     def test_save_only_not_none(self):
         request = HttpRequest()
         home_page(request)
         self.assertEqual(Item.objects.count(), 0)
-
-
-
-class HomePageTest(TestCase):
 
     def test_root_url_resolves_to_homepage_view(self):
         found = resolve('/')
@@ -68,11 +68,16 @@ class HomePageTest(TestCase):
         expected_html = render_to_string("home.html")
         self.assertTrue(response.content.decode(), expected_html)
 
-    def test_display_all_items(self):
+
+class ListViewTest(TestCase):
+    def test_uses_list_template(self):
+        response = self.client.get('/lists/the-unique-url/')
+        self.assertTemplateUsed(response, 'list.html')
+
+    def test_displays_all_items(self):
         Item.objects.create(text='Itemy 1')
         Item.objects.create(text='Itemy 2')
-        request = HttpRequest()
-        response = home_page(request)
 
-        self.assertIn('Itemy 1', response.content.decode())
-        self.assertIn('Itemy 2', response.content.decode())
+        response = self.client.get('/lists/the-unique-url/')
+        self.assertContains(response, 'Itemy 1')
+        self.assertContains(response, 'Itemy 2')
