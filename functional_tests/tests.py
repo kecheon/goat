@@ -66,10 +66,10 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotEqual(edith_list_url, francis_list_url)
 
         page_text = self.browser.find_element_by_tag_name('body').text
-        self.assertNotIn(page_text, u'족발과 새우젓')
-        self.assertIn(page_text, u'막걸리 추가')
+        self.assertNotIn(u'족발과 새우젓', page_text)
+        self.assertIn(u'막걸리 추가', page_text)
 
-        self.fail("End of tests!")
+        # self.fail("End of tests!")
 
 if __name__ == "__main__":
     unittest.main(warnings='ignore')
