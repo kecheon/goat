@@ -62,9 +62,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tdd_goat',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'USER': os.environ.get('DB_USERNAME'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOSTNAME'),
         'PORT': '3306'
     }
 }
