@@ -1,11 +1,26 @@
 __author__ = 'cheon'
 #-*-coding:utf8-*-
+import sys
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 
 class NewVisitorTest(StaticLiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        for arg in sys.argv:
+            if 'liveserver' in arg:
+                cls.server_url = 'http://' + arg.split('=')[1]
+                return
+        super().setUpClass()
+        cls.server_url = cls.live_server_url
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls.server_url == cls.live_server_url:
+            super().tearDownClass()
+
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
@@ -24,10 +39,10 @@ class NewVisitorTest(StaticLiveServerTestCase):
 
         :type self: object
         """
-        self.browser.get(self.live_server_url)
+        self.browser.get(self.server_url)
         # title과 제목에 'TODO'가 있네...
         self.assertIn('TODO', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h1').text
+        header_text = self.browser.find_element_by_tag_name('h2').text
         self.assertIn('TODO', header_text)
         # todo list 항목 입력합니다.
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -52,7 +67,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         # 다른 사람이 접속했다.
         self.browser.quit()
         self.browser = webdriver.Firefox()
-        self.browser.get(self.live_server_url)
+        self.browser.get(self.server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn(u'족발과 새우젓', page_text)
         self.assertNotIn(u'쌈도 샀니?', page_text)
