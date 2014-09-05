@@ -64,6 +64,3 @@ class NewVisitorTest(FunctionalTest):
 
         # self.fail("End of tests!")
 
-
-if __name__ == "__main__":
-    unittest.main(warnings='ignore')

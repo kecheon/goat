@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fc6098d-a656-4549-a5b8-17a7b4a0a554" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/functional_tests/tests.py" afterPath="$PROJECT_DIR$/functional_tests/base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functional_tests/test_simple_list_creation.py" afterPath="$PROJECT_DIR$/functional_tests/test_simple_list_creation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functional_tests/test_validation.py" afterPath="$PROJECT_DIR$/functional_tests/test_validation.py" />
     </list>
     <ignored path="superlists.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +29,7 @@
       <file leaf-file-name="test_layout_and_styling.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functional_tests/test_layout_and_styling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="910">
+            <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="910">
               <caret line="7" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
@@ -40,32 +39,10 @@
       <file leaf-file-name="test_validation.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functional_tests/test_validation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20866774" vertical-offset="0" max-vertical-offset="623">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9147541" vertical-offset="196" max-vertical-offset="910">
+              <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
               <folding>
                 <element signature="e#40#72#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_simple_list_creation.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functional_tests/test_simple_list_creation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1924">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functional_tests/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="1092">
-              <caret line="8" column="17" selection-start-line="5" selection-start-column="2" selection-end-line="8" selection-end-column="17" />
-              <folding>
-                <element signature="e#40#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,10 +68,10 @@
         <option value="$PROJECT_DIR$/lists/static/base.css" />
         <option value="$PROJECT_DIR$/deploy_tools/nginx_template.conf" />
         <option value="$PROJECT_DIR$/functional_tests/tests.py" />
-        <option value="$PROJECT_DIR$/functional_tests/test_simple_list_creation.py" />
         <option value="$PROJECT_DIR$/functional_tests/base.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_layout_and_styling.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_list_item_validation.py" />
+        <option value="$PROJECT_DIR$/functional_tests/test_simple_list_creation.py" />
         <option value="$PROJECT_DIR$/functional_tests/test_validation.py" />
       </list>
     </option>
@@ -704,16 +681,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_simple_list_creation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1924">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="2.001605" vertical-offset="469" max-vertical-offset="1872">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#72#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functional_tests/test_validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20866774" vertical-offset="0" max-vertical-offset="623">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9147541" vertical-offset="196" max-vertical-offset="910">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding>
             <element signature="e#40#72#0" expanded="true" />
           </folding>
